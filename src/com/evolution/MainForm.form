@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.evolution.MainForm">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="538" height="396"/>
+    </constraints>
+    <properties/>
+    <border type="bevel-lowered" title="TBLK ONYX 2 autoinput"/>
+    <children>
+      <component id="d8615" class="javax.swing.JButton" binding="buttonGo">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Click to go"/>
+        </properties>
+      </component>
+      <component id="50d39" class="javax.swing.JLabel" binding="statusLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Status: Paste your script into text editor ^^^"/>
+        </properties>
+      </component>
+      <grid id="750eb" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="17398" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Lang switch"/>
+            </properties>
+          </component>
+          <component id="f8e79" class="javax.swing.JRadioButton" binding="ALTSHIFTRadioButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <selected value="true"/>
+              <text value="ALT+SHIFT"/>
+            </properties>
+          </component>
+          <component id="85625" class="javax.swing.JRadioButton" binding="CTRLSHIFTRadioButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="CTRL+SHIFT"/>
+            </properties>
+          </component>
+          <component id="4a3c" class="javax.swing.JRadioButton" binding="WINSPACERadioButton" default-binding="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="WIN+SPACE"/>
+            </properties>
+          </component>
+          <component id="c8fd4" class="javax.swing.JButton" binding="buttonSettings">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Settings"/>
+            </properties>
+          </component>
+          <component id="cf459" class="javax.swing.JButton" binding="getViaTCPButton" default-binding="true">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-4502721"/>
+              <text value="Get via TCP"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="96b8f">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="8df4e" class="javax.swing.JEditorPane" binding="textEditorPane">
+            <constraints/>
+            <properties>
+              <text value="TBLK ONYX v2.506 scripting manual:&#10;- Paste text in this text editor&#10;- Press &quot;Go&quot;&#10;- Alt tab to terminal window&#10;- Wait 5 sec&#10;- Enjoy&#10;&#10;Tips:&#10;# - is delay&#10;$$$  -  is temporarily stop used for taking a screenshot"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="LangSwitch">
+      <member id="f8e79"/>
+      <member id="85625"/>
+      <member id="4a3c"/>
+    </group>
+  </buttonGroups>
+</form>
