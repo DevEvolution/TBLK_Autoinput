@@ -4,7 +4,7 @@ import java.io.*;
 
 public class RoboticSettings implements Serializable
 {
-    public static int versionId = 200506;
+    public static int versionId = 200880;
 
     public static int timeout = 100;
     public static int lineTimeout = 100;

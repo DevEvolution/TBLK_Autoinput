@@ -1,5 +1,7 @@
 package com.evolution;
 
+import OnyxTCP.OnyxTCPParser;
+import OnyxTCP.OnyxTCPProtocol;
 import org.omg.IOP.Encoding;
 
 import javax.swing.*;
@@ -74,36 +76,11 @@ public class MainForm extends JFrame {
         getViaTCPButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                StringBuilder builder = new StringBuilder();
-                Integer count = 0;
-                try
-                {
-                    ServerSocket serverSocket = new ServerSocket(portNumber);
-                    Socket socket = serverSocket.accept();
-                    //ByteArrayInputStream isbyte = socket.getInputStream();
-                    Scanner scanner = new Scanner(socket.getInputStream());
-                    InputStream inputStream = socket.getInputStream();
-
-                    byte[] sizeBytes = new byte[4];
-                    inputStream.read(sizeBytes);
-                    int size = bytesToInt(sizeBytes);
-                    count = size;
-                    byte[] data = new byte[size];
-                    inputStream.read(data);
-                    for (int i=0;i<size;i++)
-                    {
-                        builder.append((char)data[i]);
-                    }
-                    inputStream.close();
-                    socket.close();
-                    serverSocket.close();
-                }
-                catch(IOException ex)
-                {
-                    ex.printStackTrace();
-                }
-                textEditorPane.setText(builder.toString());
-                statusLabel.setText("Input get via TCP (length "+count.toString()+" bytes)");
+                OnyxTCPProtocol protocol = new OnyxTCPProtocol();
+                protocol.recieve(portNumber);
+                OnyxTCPParser parser = new OnyxTCPParser(protocol);
+                textEditorPane.setText(parser.outputData);
+                statusLabel.setText("Input get via TCP (length "+protocol.count.toString()+" pairs)");
             }
         });
     }
