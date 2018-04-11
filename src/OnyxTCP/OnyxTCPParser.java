@@ -19,7 +19,7 @@ public class OnyxTCPParser {
         }
     }
 
-    private void parse() throws IOException {
+    protected void parse() throws IOException {
         String filename = "";
         for (int i = 0; i < pairs.size(); i++) {
             OnyxTCPPair pair = pairs.get(i);

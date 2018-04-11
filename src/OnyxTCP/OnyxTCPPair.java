@@ -13,21 +13,21 @@ public class OnyxTCPPair {
         this.payload = payload;
     }
 
-    public static OnyxTCPPair GetFinalizingPair()
+    public static OnyxTCPPair getFinalizingPair()
     {
         return new OnyxTCPPair(OnyxTCPPayloadType.Finalizer, "");
     }
 
-//    public ArrayList<byte[]> PrepareToBoxing()
-//    {
-//        List<byte[]> box = new List<byte[]>();
-//        //byte[] __payload = Encoding.ASCII.GetBytes(payload);
-//        int size = __payload.Length;
-//        int type = (int)this.type;
-//        //box.Add(OnyxTCPProtocol.IntToByteArray(size));
-//        //box.Add(OnyxTCPProtocol.IntToByteArray(type));
-//        //box.Add(__payload);
-//
-//        return box;
-//    }
+    public ArrayList<byte[]> prepareToBoxing()
+    {
+        ArrayList<byte[]> box = new ArrayList<byte[]>();
+        byte[] __payload = payload.getBytes();
+        int size = __payload.length;
+        int type = this.type.ordinal();
+        box.add(OnyxTCPProtocol.intToBytes(size));
+        box.add(OnyxTCPProtocol.intToBytes(type));
+        box.add(__payload);
+
+        return box;
+    }
 }

@@ -24,6 +24,7 @@ public class MainForm extends JFrame {
     private JRadioButton WINSPACERadioButton;
     private JButton buttonSettings;
     private JButton getViaTCPButton;
+    private JButton buttonSendByTCP;
 
     protected int portNumber = 10486;
 
@@ -80,7 +81,27 @@ public class MainForm extends JFrame {
                 protocol.recieve(portNumber);
                 OnyxTCPParser parser = new OnyxTCPParser(protocol);
                 textEditorPane.setText(parser.outputData);
-                statusLabel.setText("Input get via TCP (length "+protocol.count.toString()+" pairs)");
+                statusLabel.setText("Input get via TCP (length "+protocol.getPairsCount().toString()+" pairs)");
+            }
+        });
+        buttonSendByTCP.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                SendByTCPDialog dialog = new SendByTCPDialog();
+                dialog.setVisible(true);
+
+                if(dialog.dialogResult) {
+                    OnyxTCPProtocol protocol = new OnyxTCPProtocol();
+                    try {
+                        for (String path : dialog.filesToSend) {
+                            protocol.addFile(path);
+                        }
+                        protocol.send(dialog.ipAddress, portNumber);
+                        statusLabel.setText("Files send by ONYX/TCP (length "+protocol.getPairsCount()+" pairs)");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
             }
         });
     }
