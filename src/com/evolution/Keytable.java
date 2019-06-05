@@ -25,6 +25,7 @@ public class Keytable {
         keytable.put("!", new Integer[]{KeyEvent.VK_SHIFT, KeyEvent.VK_1});
         keytable.put("@", new Integer[]{KeyEvent.VK_SHIFT, KeyEvent.VK_2});
         keytable.put("#", new Integer[]{KeyEvent.VK_SHIFT, KeyEvent.VK_3});
+        keytable.put("$", new Integer[]{KeyEvent.VK_SHIFT, KeyEvent.VK_4});
         keytable.put("%", new Integer[]{KeyEvent.VK_SHIFT, KeyEvent.VK_5});
         keytable.put("^", new Integer[]{KeyEvent.VK_SHIFT, KeyEvent.VK_6});
         keytable.put("&", new Integer[]{KeyEvent.VK_SHIFT, KeyEvent.VK_7});

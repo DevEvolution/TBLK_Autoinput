@@ -104,8 +104,22 @@ public class OnyxTCPProtocol {
                 // Payload
                 byte[] data = new byte[size];
                 inputStream.read(data);
+                short utf16char = 0;
+                if(type==OnyxTCPPayloadType.File)
+                {
+                    for (int j = 0; j < size; j++)
+                        builder.append((char) data[j]);
+                }
+                else
                 for (int j = 0; j < size; j++) {
-                    builder.append((char) data[j]);
+                    if(j%2==0) {
+                        utf16char = data[j];
+                    }
+                    else
+                    {
+                        utf16char = (short)((short)(data[j] << 8) + utf16char); //((utf16char << 8) + data[j]);
+                        builder.append((char) utf16char);
+                    }
                 }
 
                 // Add it to pairs

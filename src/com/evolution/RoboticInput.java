@@ -32,9 +32,24 @@ public class RoboticInput {
 
     public void emulateKeyboard(String text) {
         isLangSwitched = false;
+        int stopCount = 0;
         for (int i = 0; i < text.length(); i++) {
             Character c = text.charAt(i);
-            if(c.equals('$')) return;
+            if(c.equals('$'))
+            {
+                if(++stopCount == 3)
+                    return;
+                else
+                    continue;
+            }
+            if(stopCount > 0)
+            {
+                for(;stopCount>0;stopCount--)
+                {
+                    sendKey('$');
+                    robot.delay(RoboticSettings.timeout);
+                }
+            }
             if(c.equals('#'))
             {
                 robot.delay(RoboticSettings.delayTimeout);
